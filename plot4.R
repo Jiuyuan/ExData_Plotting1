@@ -19,7 +19,10 @@ plot4 <- function() {
         
         ## Plot1, Hist freq
         hist(FebData$Global_active_power, freq = TRUE, xlab = "Global Active Power (kilowatts)", main = "Global Active Power", col = "red")
-        plot(FebData$Time[!is.na(FebData$Global_active_power)], FebData$Global_active_power[!is.na(FebData$Global_active_power)], xlab = "", ylab = "Global Active Power (kilowatts)", type = "l")
+        plot(FebData$Time, FebData$Sub_metering_1, xlab = "", ylab = "Energy sub metering", type = "l")
+                lines(FebData$Time, FebData$Sub_metering_2,type = "l", col = "red")
+                lines(FebData$Time, FebData$Sub_metering_3,type = "l", col = "blue")
+                legend("topright", lty = 1, col = c("black","red", "blue"), bty = "n", legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"))
         plot(FebData$Time, FebData$Voltage, xlab = "daytime", ylab = "voltage", type = "l")
         plot(FebData$Time, FebData$Global_reactive_power, xlab = "daytime", ylab = "Global_reactive_power", type = "l")
         
